@@ -1,9 +1,9 @@
-package br.com.adriano.loja.testes;
+package br.com.adriano.strategy.loja.testes;
 
-import br.com.adriano.loja.imposto.CalculadoraDeImpostos;
-import br.com.adriano.loja.imposto.ImpostoICMS;
-import br.com.adriano.loja.imposto.ImpostoISS;
-import br.com.adriano.loja.orcamento.Orcamento;
+import br.com.adriano.strategy.loja.imposto.CalculadoraDeImpostos;
+import br.com.adriano.strategy.loja.imposto.ImpostoICMS;
+import br.com.adriano.strategy.loja.imposto.ImpostoISS;
+import br.com.adriano.strategy.loja.orcamento.Orcamento;
 
 import java.math.BigDecimal;
 
