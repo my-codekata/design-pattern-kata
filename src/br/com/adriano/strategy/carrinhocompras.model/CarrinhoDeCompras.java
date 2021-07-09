@@ -8,10 +8,11 @@ import java.util.List;
 
 public class CarrinhoDeCompras {
     private List<Produto> produtos;
-    private BigDecimal desconto = BigDecimal.ZERO;
+    private  DescontoStrategy desconto;
 
-    public CarrinhoDeCompras() {
+    public CarrinhoDeCompras(DescontoStrategy tipoDeDesconto) {
         this.produtos = new ArrayList<>();
+        this.desconto = tipoDeDesconto;
     }
 
     public void adicionaProduto(Produto produto) {
@@ -30,14 +31,7 @@ public class CarrinhoDeCompras {
 
     public BigDecimal getTotalComDesconto() {
         BigDecimal total = this.getTotal();
-
-        if (total.compareTo(BigDecimal.valueOf(100)) >= 0 && total.compareTo(BigDecimal.valueOf(200)) < 0) {
-            this.desconto = new BigDecimal("0.9");
-        } else if (total.compareTo(BigDecimal.valueOf(200)) >= 0 && total.compareTo(BigDecimal.valueOf(300)) < 0) {
-            this.desconto = new BigDecimal("0.8");
-        } else if(total.compareTo(BigDecimal.valueOf(300)) >= 0) {
-            this.desconto = new BigDecimal("0.7");
-        }
+        BigDecimal desconto = this.desconto.getDesconto(this);
         return total.multiply(desconto);
     }
 }
