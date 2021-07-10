@@ -6,13 +6,13 @@ import java.math.BigDecimal;
 
 public class CalculadoraDeDescontos {
     public BigDecimal calcular(Orcamento orcamento) {
-        if (orcamento.getQuantidadeItens() > 5) {
-            return orcamento.getValor().multiply(new BigDecimal("0.1"));
-        }
-        if (orcamento.getValor().compareTo(BigDecimal.valueOf(500.0)) > 0) {
-            return orcamento.getValor().multiply(new BigDecimal("0.2"));
-        }
-        return BigDecimal.ZERO;
+        Desconto desconto = new DescontoParaMaisDeCincoItens();
+        DescontoParaOrcamentoComValorMaiorQueQuinhentos descontoParaOrcamentoComValorMaiorQueQuinhentos = new DescontoParaOrcamentoComValorMaiorQueQuinhentos();
+        SemDesconto semDesconto = new SemDesconto();
+
+        desconto.adicionarRegraDeDesconto(descontoParaOrcamentoComValorMaiorQueQuinhentos)
+                .adicionarRegraDeDesconto(semDesconto);
+        return desconto.calcular(orcamento);
     }
 
 }
