@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 public class DescontoParaOrcamentoComValorMaiorQueQuinhentos extends Desconto {
     @Override
     public BigDecimal calcular(Orcamento orcamento) {
-        if (orcamento.getValor().compareTo(BigDecimal.valueOf(500.0)) > 0) {
+        if (orcamento.getValor().compareTo(new BigDecimal("500.0")) > 0) {
             return orcamento.getValor().multiply(new BigDecimal("0.2"));
         }
         return this.proximo.calcular(orcamento);

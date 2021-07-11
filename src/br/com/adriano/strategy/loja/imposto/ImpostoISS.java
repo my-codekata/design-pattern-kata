@@ -7,6 +7,6 @@ import java.math.BigDecimal;
 public class ImpostoISS implements Imposto {
     @Override
     public BigDecimal calcular(Orcamento orcamento, Imposto imposto) {
-        return orcamento.getValor().multiply(BigDecimal.valueOf(0.06));
+        return orcamento.getValor().multiply(new BigDecimal("0.06"));
     }
 }

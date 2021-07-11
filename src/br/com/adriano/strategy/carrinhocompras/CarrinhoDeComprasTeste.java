@@ -10,9 +10,9 @@ import java.math.BigDecimal;
 public class CarrinhoDeComprasTeste {
 
     public static void main(String[] args) {
-        Produto produtoA = new Produto("a", BigDecimal.valueOf(10));
-        Produto produtoB = new Produto("b", BigDecimal.valueOf(15));
-        Produto produtoC = new Produto("c", BigDecimal.valueOf(25));
+        Produto produtoB = new Produto("b", new BigDecimal("15"));
+        Produto produtoC = new Produto("c", new BigDecimal("25"));
+        Produto produtoA = new Produto("a", new BigDecimal("10"));
 
         CarrinhoDeCompras carrinhoDeCompras = new CarrinhoDeCompras(new DescontoPadrao());
         carrinhoDeCompras.adicionaProduto(produtoA);
@@ -20,17 +20,17 @@ public class CarrinhoDeComprasTeste {
         carrinhoDeCompras.adicionaProduto(produtoC);
 
         System.out.println("10% de desconto =========================");
-        carrinhoDeCompras.adicionaProduto(new Produto("d", BigDecimal.valueOf(50)));
+        carrinhoDeCompras.adicionaProduto(new Produto("d", new BigDecimal("50")));
         System.out.println(carrinhoDeCompras.getTotal());
         System.out.println(carrinhoDeCompras.getTotalComDesconto());
 
         System.out.println("20% de desconto =========================");
-        carrinhoDeCompras.adicionaProduto(new Produto("d", BigDecimal.valueOf(100)));
+        carrinhoDeCompras.adicionaProduto(new Produto("d", new BigDecimal("100")));
         System.out.println(carrinhoDeCompras.getTotal());
         System.out.println(carrinhoDeCompras.getTotalComDesconto());
 
         System.out.println("30% de desconto =========================");
-        carrinhoDeCompras.adicionaProduto(new Produto("d", BigDecimal.valueOf(100)));
+        carrinhoDeCompras.adicionaProduto(new Produto("d", new BigDecimal("100")));
         System.out.println(carrinhoDeCompras.getTotal());
         System.out.println(carrinhoDeCompras.getTotalComDesconto());
 
